@@ -6,7 +6,6 @@
             "email": "vladus032@gmail.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "App\\Controllers\\":"app/controllers",
