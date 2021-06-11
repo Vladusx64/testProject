@@ -11,6 +11,7 @@ define('VIEWS_DIR', __DIR__ . '/views/');
 define('STORE_DIR', __DIR__ . '/store/');
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
 use App\Controllers\PictureController;
 

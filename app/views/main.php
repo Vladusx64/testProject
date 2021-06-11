@@ -38,14 +38,14 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                     <?php for ($i = 0; $i < 9; $i++) : ?>
+
                         <div class="col">
                             <div class="card shadow-sm">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="225" srcset="https://images.unsplash.com/photo-1437382944886-45a9f73d4158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
                                 </img>
-
                             </div>
                         </div>
+
                     <?php endfor; ?>
                 </div>
             </div>
