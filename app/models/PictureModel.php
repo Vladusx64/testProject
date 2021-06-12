@@ -40,18 +40,16 @@ class PictureModel
     public function pictureCheck(array $arrayPicture)
     {
         $arrayPicture2 = array();
-        $resultArr = array();
-        foreach ($arrayPicture as $linc) {
+        $resultArr = array(); 
+        for($i = 0; $i< count($arrayPicture); $i++){
 
-            $document = new Document($linc, true);
+            $document = new Document($arrayPicture[$i], true);
 
             $element = (string)$document->first('._2UpQX');
 
-            preg_match_all('/(alt|title|src)=("[^"]*")/i', $element, $arrayPicture2[$element]);
-        }
-       
-        foreach ($arrayPicture2 as $element) {
-            $url = $element[2][0];
+            preg_match_all('/(alt|title|src)=("[^"]*")/i', $element, $arrayPicture2[$i]);
+
+            $url = $arrayPicture2[$i][2][0];
             array_push($resultArr, $url);
         }
 
