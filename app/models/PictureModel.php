@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DiDom\Document;
+
 class PictureModel
 {
     public function readUrl($site_url)
@@ -9,7 +11,7 @@ class PictureModel
         if ($this->chekUrlToExists($site_url)) {
             $file = file_get_contents($site_url);
             $file = json_decode($file, true);
-            
+
             $array_count = count($file);
             $array = array();
 
@@ -37,10 +39,22 @@ class PictureModel
 
     public function pictureCheck(array $arrayPicture)
     {
+        $arrayPicture2 = array();
+        $resultArr = array();
         foreach ($arrayPicture as $linc) {
 
-            $html = file_get_html('http://habrahabr.ru/');}
-            var_dump($html);
+            $document = new Document($linc, true);
+
+            $element = (string)$document->first('._2UpQX');
+
+            preg_match_all('/(alt|title|src)=("[^"]*")/i', $element, $arrayPicture2[$element]);
         }
+       
+        foreach ($arrayPicture2 as $element) {
+            $url = $element[2][0];
+            array_push($resultArr, $url);
+        }
+
+        return $resultArr;
     }
 }

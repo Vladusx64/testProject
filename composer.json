@@ -9,7 +9,9 @@
     "autoload": {
         "psr-4": {
             "App\\Controllers\\":"app/controllers",
-            "App\\Models\\":"app/models"
+            "App\\Models\\":"app/models",
+            "DiDom\\": "vendor/imangazaliev/didom/src/DiDom/"
+            
         }
     },
     "require": {
