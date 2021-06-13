@@ -6,7 +6,7 @@ use DiDom\Document;
 
 class PictureModel
 {
-    public function readUrl($site_url)
+    public function readUrl(string $site_url, int $length)
     {
         if ($this->chekUrlToExists($site_url)) {
             $file = file_get_contents($site_url);
@@ -15,7 +15,7 @@ class PictureModel
             $array_count = count($file);
             $array = array();
 
-            while (count($array) < ARRAY_LENGTH) {
+            while (count($array) < $length) {
                 $index = rand(0, $array_count);
                 if ($this->chekUrlToExists($file[$index]['post_url'])) {
                     array_push($array, $file[$index]['post_url']);
@@ -41,7 +41,7 @@ class PictureModel
 
     public function pictureCheck(array $arrayPicture)
     {
-        $arrayPicture2 = array();
+        $arrayRawPic = array();
         $resultArr = array();
         for ($i = 0; $i < count($arrayPicture); $i++) {
 
@@ -49,9 +49,9 @@ class PictureModel
 
             $element = (string)$document->first('._2UpQX');
 
-            preg_match_all('/(alt|title|src)=("[^"]*")/i', $element, $arrayPicture2[$i]);
+            preg_match_all('/(alt|title|src)=("[^"]*")/i', $element, $arrayRawPic[$i]);
 
-            $url = $arrayPicture2[$i][2][0];
+            $url = $arrayRawPic[$i][2][0];
             array_push($resultArr, $url);
         }
 

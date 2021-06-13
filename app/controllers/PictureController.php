@@ -10,7 +10,7 @@ class PictureController
     {
         $errors = false;
         $picture = new Picture();
-        $arrayPicture = $picture->readUrl(SITE_URL);
+        $arrayPicture = $picture->readUrl(SITE_URL, ARRAY_LENGTH);
 
         if ($arrayPicture != null) {
             $arrayPictureUrl = $picture->pictureCheck($arrayPicture);
