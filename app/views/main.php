@@ -8,9 +8,12 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-    <title>Picture</title>
-    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text / css" href="./assets/css/jquery.fancybox.min.css">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <title>Picture</title>
 </head>
 
 <body>
@@ -38,14 +41,13 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                     <?php for ($i = 0; $i < ARRAY_LENGTH; $i++) : ?>
-
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=<?php echo $arrayPictureUrl[$i]; ?> role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                </img>
+                                <a href=<?php echo $arrayPictureUrl[$i]; ?> data-fancybox="gallery">
+                                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=<?php echo $arrayPictureUrl[$i]; ?> role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                                </a>
                             </div>
                         </div>
-
                     <?php endfor; ?>
                 </div>
             </div>
@@ -53,6 +55,8 @@
     </main>
 
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+    <script src="../assets/js/jquery.fancybox.min.js"> </script>
 </body>
 
 </html>
