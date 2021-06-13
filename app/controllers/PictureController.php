@@ -8,10 +8,15 @@ class PictureController
 {
     public function __construct()
     {
+        $errors = false;
         $picture = new Picture();
         $arrayPicture = $picture->readUrl(SITE_URL);
-        $arrayPictureUrl = $picture->pictureCheck($arrayPicture);
 
+        if ($arrayPicture != null) {
+            $arrayPictureUrl = $picture->pictureCheck($arrayPicture);
+        } else {
+        $errors = true;
+        }
         require_once VIEWS_DIR .  'main.php';
     }
 }

@@ -39,16 +39,21 @@
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                    <?php for ($i = 0; $i < ARRAY_LENGTH; $i++) : ?>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <a href=<?php echo $arrayPictureUrl[$i]; ?> data-fancybox="gallery">
-                                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=<?php echo $arrayPictureUrl[$i]; ?> role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
-                                </a>
+                    <?php if ($errors) : ?>
+                        <span class="border border-warning">
+                        <p class="fs-4"> There were errors at work, please contact the administrators </p>
+                        </span>
+                    <?php else : ?>
+                        <?php for ($i = 0; $i < ARRAY_LENGTH; $i++) : ?>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <a href=<?php echo $arrayPictureUrl[$i]; ?> data-fancybox="gallery">
+                                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=<?php echo $arrayPictureUrl[$i]; ?> role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" />
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    <?php endfor; ?>
+                        <?php endfor; ?>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

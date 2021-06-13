@@ -17,7 +17,9 @@ class PictureModel
 
             while (count($array) < ARRAY_LENGTH) {
                 $index = rand(0, $array_count);
-                array_push($array, $file[$index]['post_url']);
+                if ($this->chekUrlToExists($file[$index]['post_url'])) {
+                    array_push($array, $file[$index]['post_url']);
+                }
             }
 
             return $array;
@@ -40,8 +42,8 @@ class PictureModel
     public function pictureCheck(array $arrayPicture)
     {
         $arrayPicture2 = array();
-        $resultArr = array(); 
-        for($i = 0; $i< count($arrayPicture); $i++){
+        $resultArr = array();
+        for ($i = 0; $i < count($arrayPicture); $i++) {
 
             $document = new Document($arrayPicture[$i], true);
 
